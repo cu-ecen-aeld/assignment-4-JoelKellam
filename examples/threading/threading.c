@@ -41,7 +41,6 @@ void* threadfunc(void* thread_param)
         thread_func_args->thread_complete_success = false;
         return thread_param;
     }
-
     thread_func_args->thread_complete_success = true;
     return thread_param;
 }
@@ -69,8 +68,7 @@ bool start_thread_obtaining_mutex(pthread_t *thread, pthread_mutex_t *mutex,int 
     if(pthread_create(&t_data->thread, NULL, threadfunc, t_data) == 0)
     {
         syslog(LOG_INFO, "pthread created successfully\n");
-    }
-    
+    } 
     *thread = t_data->thread;
     return true;
 }
